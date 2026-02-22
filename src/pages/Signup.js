@@ -21,7 +21,7 @@ function Signup() {
 
     try {
       await axios.post(
-        "http://localhost:5005/api/register",
+        "https://backend-4as5.onrender.com/api/register",
         form
       );
 
