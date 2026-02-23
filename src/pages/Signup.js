@@ -24,7 +24,7 @@ function Signup() {
     e.preventDefault();
 
     try {
-      await axios.post("http://localhost:5005/api/register", form);
+      await axios.post(`${process.env.REACT_APP_BACKEND_URL}/api/register`, form);
 
       alert("User Registered Successfully ✅");
       navigate("/login");
@@ -51,7 +51,7 @@ function Signup() {
       const decodedToken = JSON.parse(jsonPayload);
 
       const response = await axios.post(
-        "http://localhost:5000/api/google-auth",
+        `${process.env.REACT_APP_BACKEND_URL}/api/google-auth`,
         {
           email: decodedToken.email,
           name: decodedToken.name,

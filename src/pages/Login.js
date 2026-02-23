@@ -12,6 +12,11 @@ function Login() {
     password: ""
   });
 
+  // environment variable is logged for debug; ensure .env has REACT_APP_BACKEND_URL
+  console.log("Backend URL:", process.env.REACT_APP_BACKEND_URL);
+
+  
+
   const [error, setError] = useState("");
 
   const handleChange = (e) => {
@@ -24,7 +29,7 @@ function Login() {
 
     try {
       const res = await axios.post(
-        " http://localhost:5005/api/login",
+        `${process.env.REACT_APP_BACKEND_URL}/api/login`,
         form
       );
 
@@ -53,7 +58,7 @@ function Login() {
 
       // Send to backend
       const response = await axios.post(
-        "https://backend-4as5.onrender.com/api/google-auth",
+        `${process.env.REACT_APP_BACKEND_URL}/api/google-auth`,
         {
           email: decodedToken.email,
           name: decodedToken.name,
