@@ -50,7 +50,7 @@ function Signup() {
 
       const decodedToken = JSON.parse(jsonPayload);
 
-      const response = await axios.post(
+      const response = await axios.post(    
         `${process.env.REACT_APP_BACKEND_URL}/api/google-auth`,
         {
           email: decodedToken.email,
